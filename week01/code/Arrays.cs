@@ -13,7 +13,20 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // create an array to hold the multiples. 
+        double[] result = new double[length];
+        
+        // loop through each position in the array.
+        for (int i = 0; i < length; i++)
+        {
+
+        // calculate the multiple by multiplying the number by (index + 1).
+        //store the multiple in the current position of the array.
+            result[i] = number * (i + 1);
+        }
+
+        // return the array.
+        return result; 
     }
 
     /// <summary>
@@ -29,5 +42,26 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        // handle small or empty lists.
+        if (data.Count == 0 || data.Count ==1) return;
+
+        // normalize the amount incase its equalto or larger than list size.
+        amount = amount % data.Count;
+
+        // if amount is 0, no rotation needed.
+        if (amount == 0) return;
+
+        // get the last amount of items from tail of the list.
+        List<int> tailItems = data.GetRange(data.Count - amount, amount);
+
+        // get the remaining items at the head of the list.
+        List<int> headItems = data.GetRange(0, data.Count - amount);
+
+        // clear original list and rebuild it in rotated order.
+        data.Clear();
+        data.AddRange(tailItems);
+        data.AddRange(headItems);
+
     }
 }
