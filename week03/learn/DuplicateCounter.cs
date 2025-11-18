@@ -33,9 +33,12 @@
             if (unique.Contains(x))
             duplicates++;
 
-            else;
-            unique.Add(x);
+            else
+            {
+                unique.Add(x);
+            }
         }
         return duplicates;
     }
 }
+
