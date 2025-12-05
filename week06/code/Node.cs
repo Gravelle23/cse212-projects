@@ -34,12 +34,38 @@ public class Node
     public bool Contains(int value)
     {
         // TODO Start Problem 2
-        return false;
+        if (value == Data)
+        {
+            return true;
+        }
+        else if (value < Data)
+        {
+            // Look in the left subtree
+            return Left is not null && Left.Contains(value);
+        }
+        else
+        {
+            // Look in the right subtree
+            return Right is not null && Right.Contains(value);
+        }
     }
 
     public int GetHeight()
     {
         // TODO Start Problem 4
-        return 0; // Replace this line with the correct return statement(s)
+        int leftHeight = 0;
+        int rightHeight = 0;
+
+        if (Left is not null)
+        {
+            leftHeight = Left.GetHeight();
+        }
+
+        if (Right is not null)
+        {
+            rightHeight = Right.GetHeight();
+        }
+
+        return 1 + Math.Max(leftHeight, rightHeight);
     }
 }
