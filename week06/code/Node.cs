@@ -12,24 +12,28 @@ public class Node
     public void Insert(int value)
     {
         // TODO Start Problem 1
+        if (value == Data)
+        {
+        return;
+        }
 
         if (value < Data)
         {
-            // Insert to the left
-            if (Left is null)
-                Left = new Node(value);
-            else
-                Left.Insert(value);
+        if (Left is null)
+            Left = new Node(value);
+        else
+            Left.Insert(value);
+        }
+        else 
+        {
+        if (Right is null)
+        {
+            Right = new Node(value);
         }
         else
-        {
-            // Insert to the right
-            if (Right is null)
-                Right = new Node(value);
-            else
-                Right.Insert(value);
+            Right.Insert(value);
         }
-    }
+    }   
 
     public bool Contains(int value)
     {
